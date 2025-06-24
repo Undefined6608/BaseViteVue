@@ -1,0 +1,3 @@
+type UserStore = {
+  userInfo?: UserInfo;
+};
