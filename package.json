@@ -11,6 +11,7 @@
     "lint:fix": "eslint . --ext .ts,.vue --fix"
   },
   "dependencies": {
+    "@vueuse/core": "^13.4.0",
     "element-plus": "^2.10.2",
     "pinia": "^3.0.3",
     "uuid": "^11.1.0",
