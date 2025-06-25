@@ -1,5 +1,4 @@
-import { notification } from "antd";
-import type { NotificationPlacement } from "antd/es/notification/interface";
+import { ElNotification } from "element-plus";
 
 /**
  * 通用通知提示
@@ -10,17 +9,22 @@ import type { NotificationPlacement } from "antd/es/notification/interface";
  * @param placement 展示位置，默认 topRight
  */
 const showNotification = (
-  type: "success" | "info" | "warning" | "error",
+  type: "primary" | "success" | "warning" | "info" | "error" | "",
   message: string,
   description?: string,
   duration: number = 3,
-  placement: NotificationPlacement = "topRight",
+  placement:
+    | "top-right"
+    | "top-left"
+    | "bottom-right"
+    | "bottom-left" = "top-right"
 ): void => {
-  notification[type]({
-    message,
-    description,
-    duration,
-    placement,
+  ElNotification({
+    type: type,
+    title: message,
+    message: description,
+    duration: duration * 1000,
+    position: placement,
   });
 };
 
@@ -30,7 +34,7 @@ const showNotification = (
 export const notifySuccess = (
   message: string = "操作成功",
   description?: string,
-  duration?: number,
+  duration?: number
 ): void => {
   showNotification("success", message, description, duration);
 };
@@ -41,7 +45,7 @@ export const notifySuccess = (
 export const notifyInfo = (
   message: string = "提示",
   description?: string,
-  duration?: number,
+  duration?: number
 ): void => {
   showNotification("info", message, description, duration);
 };
@@ -52,7 +56,7 @@ export const notifyInfo = (
 export const notifyWarning = (
   message: string = "警告",
   description?: string,
-  duration?: number,
+  duration?: number
 ): void => {
   showNotification("warning", message, description, duration);
 };
@@ -63,7 +67,7 @@ export const notifyWarning = (
 export const notifyError = (
   message: string = "出错了",
   description?: string,
-  duration?: number,
+  duration?: number
 ): void => {
   showNotification("error", message, description, duration);
 };

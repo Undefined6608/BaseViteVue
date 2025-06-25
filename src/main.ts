@@ -9,6 +9,7 @@ import router from "./router";
 import pinia from "./store";
 
 import "element-plus/dist/index.css";
+import "@/styles/reset-element.scss";
 
 // TODO: 实例化vue-app
 const application = createApp(App);
